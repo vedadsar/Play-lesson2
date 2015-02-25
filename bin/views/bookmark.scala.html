@@ -1,0 +1,20 @@
+@(inputBookmark: Form[Bookmark])(username: String)(bookmarks: List[Bookmark])
+@import helper._
+
+@main("Bookmar"){
+	<h1> Welcome @username</h1>
+	
+	<ul>
+	@for(bookmark <- bookmarks){
+		<li> <b>User: </b> @bookmark.username | <b>URL: </b> @bookmark.url </li>
+	}
+	
+	</ul>
+	
+	@helper.form(routes.Application.addBookmark()){
+		@helper.inputText(inputBookmark("url"))
+		<input type="submit" value="Save" />
+		
+	}
+	
+}

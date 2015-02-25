@@ -1,0 +1,14 @@
+@(message: String)(name: String)(input: Form[Name])
+@import helper._
+
+@main("Welcome to Play") {
+	@message
+		<h1>@name</h1>
+	
+	@helper.form(routes.Application.recognize()){
+		<input type="text" value="" id="name" name="name"/>
+		<input type="submit" value="Save" />
+	}
+	
+	
+}
